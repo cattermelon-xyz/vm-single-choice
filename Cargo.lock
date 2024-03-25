@@ -1509,6 +1509,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "solana-workflow"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e0478c40ee568fe2b16dba6bfa45b625d1798b136945f28b9e2eecb8c5100767"
+dependencies = [
+ "anchor-lang",
+]
+
+[[package]]
 name = "subtle"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1666,6 +1675,7 @@ name = "vm-single-choice"
 version = "0.1.0"
 dependencies = [
  "anchor-lang",
+ "solana-workflow",
 ]
 
 [[package]]

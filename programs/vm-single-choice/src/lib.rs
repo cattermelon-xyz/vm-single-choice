@@ -1,15 +1,21 @@
 use anchor_lang::prelude::*;
+use states::*;
+use instructions::*;
 
-declare_id!("2noSBsEGTG9CY2cdCj7Z6oPj8L62fr4yq8pMPPagRdCY");
+pub mod instructions;
+pub mod states;
+
+declare_id!("3XR9BbkbddGNFCbEG59XXEy9MydHZmGZb6jEq4VxQWY7");
 
 #[program]
-pub mod vm_single_choice {
+pub mod single_choice {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        Ok(())
+    pub fn vote<'c: 'info, 'info>(
+        ctx: Context<'_, '_, 'c, 'info, Vote<'info>>,
+        vote: InputVote,
+        vec_coef: Vec<u8>,
+    ) -> Result<()> {
+        instructions::vote::vote(ctx, vote, vec_coef)
     }
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}
